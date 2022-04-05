@@ -1,0 +1,1164 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: #000000;
+
+  z-index: 100;
+  transition: all 0.7s ease;
+}
+.sidebar.close {
+  width: 78px;
+}
+.sidebar .logo-details {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar .logo-details i {
+  font-size: 30px;
+  color: #fff;
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+}
+.sidebar .logo-details .logo_name {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
+}
+.sidebar.close .logo-details .logo_name {
+  transition-delay: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links {
+  height: 100%;
+  padding: 30px 0 150px 0;
+  overflow: auto;
+}
+.sidebar.close .nav-links {
+  overflow: visible;
+}
+.sidebar .nav-links::-webkit-scrollbar {
+  display: none;
+}
+.sidebar .nav-links li {
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li:hover {
+  background: #1d1b31;
+}
+.sidebar .nav-links li .icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar.close .nav-links li .icon-link {
+  display: block;
+}
+.sidebar .nav-links li i {
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li.showMenu i.arrow {
+  transform: rotate(-180deg);
+}
+.sidebar.close .nav-links i.arrow {
+  display: none;
+}
+.sidebar .nav-links li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar .nav-links li a .link_name {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+.sidebar.close .nav-links li a .link_name {
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links li .sub-menu {
+  padding: 6px 6px 14px 80px;
+  margin-top: -10px;
+  background: #1d1b31;
+  display: none;
+}
+.sidebar .nav-links li.showMenu .sub-menu {
+  display: block;
+}
+.sidebar .nav-links li .sub-menu a {
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 0;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li .sub-menu a:hover {
+  opacity: 1;
+}
+.sidebar.close .nav-links li .sub-menu {
+  position: absolute;
+  left: 100%;
+  top: -10px;
+  margin-top: 0;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+  transition: 0s;
+}
+.sidebar.close .nav-links li:hover .sub-menu {
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li .sub-menu .link_name {
+  display: none;
+}
+.sidebar.close .nav-links li .sub-menu .link_name {
+  font-size: 18px;
+  opacity: 1;
+  display: block;
+}
+.sidebar .nav-links li .sub-menu.blank {
+  opacity: 1;
+  pointer-events: auto;
+  padding: 3px 20px 6px 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links li:hover .sub-menu.blank {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sidebar .profile-details {
+  position: fixed;
+  bottom: 0;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1d1b31;
+  padding: 12px 0;
+  transition: all 0.5s ease;
+}
+.sidebar.close .profile-details {
+  background: none;
+}
+.sidebar.close .profile-details {
+  width: 78px;
+}
+.sidebar .profile-details .profile-content {
+  display: flex;
+  align-items: center;
+}
+.sidebar .profile-details img {
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 14px 0 12px;
+  background: #1d1b31;
+  transition: all 0.5s ease;
+}
+.sidebar.close .profile-details img {
+  padding: 10px;
+}
+.sidebar .profile-details .profile_name,
+.sidebar .profile-details .job {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.sidebar.close .profile-details i,
+.sidebar.close .profile-details .profile_name,
+.sidebar.close .profile-details .job {
+  display: none;
+}
+.sidebar .profile-details .job {
+  font-size: 12px;
+}
+.home-section {
+  position: relative;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+}
+.sidebar.close ~ .home-section {
+  left: 78px;
+  width: calc(100% - 78px);
+}
+.home-section .home-content {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text {
+  color: #11101d;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu {
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text {
+  font-size: 26px;
+  font-weight: 600;
+}
+@media (max-width: 420px) {
+  .sidebar.close .nav-links li .sub-menu {
+    display: none;
+  }
+}
+
+.intro-div {
+  background-color: rgb(103, 227, 243);
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-text {
+  width: 32ch;
+  animation: typing 3s steps(27), blink 0.7s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 4em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#hobby-div {
+  background-color: rgb(255, 255, 255);
+  height: 90vh;
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.hobby-text-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.hobby-images-container {
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hobby-card {
+  width: 30%;
+  border: 2px solid white;
+  margin: 10px;
+  height: 600px;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#first-card {
+  transform-origin: center;
+  transform: perspective(800px) rotateY(10deg);
+  background-image: url(/Images/cows.png);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: bottom;
+}
+
+#second-card {
+  background-image: url(/Images/floatie.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 60%;
+}
+
+#third-card {
+  transform-origin: center;
+  transform: perspective(800px) rotateY(-10deg);
+  background-image: url(/Images/dribble.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+}
+
+.hobby-card-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+}
+
+.hobby-card-description {
+  width: 80%;
+  height: 50%;
+  font-size: 22px;
+}
+
+.hobby-card-img-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.hobby-card-img-div img {
+  height: 340px;
+  width: 100%;
+}
+
+#floatie-img {
+  width: 200px;
+  height: 200px;
+}
+
+#education-div {
+  background-color: rgb(191, 245, 194);
+  height: 90vh;
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.education-text-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.education-text-div h1 {
+  margin-top: 30px;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.claremore-div {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.claremore-img-div {
+  height: 30%;
+}
+
+.claremore-div img {
+  height: 300px;
+  width: 400px;
+}
+
+.claremore-text-div {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
+  font-size: 26px;
+}
+
+.fullstack-div {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.fullstack-img-div {
+  height: 30%;
+}
+
+.fullstack-div img {
+  height: 300px;
+  width: 300px;
+}
+
+.fullstack-text-div {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
+  font-size: 26px;
+}
+
+.job-div {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.job-img-div {
+  height: 30%;
+}
+
+.job-div img {
+  height: 300px;
+  width: 300px;
+}
+
+.job-text-div {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
+  font-size: 26px;
+}
+
+#family-div {
+  background-color: rgb(255, 255, 255);
+  height: 85vh;
+  width: 100%;
+  position: relative;
+}
+
+.family-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 33%;
+  justify-content: space-between;
+  height: 100%;
+  margin: 100px 30px 0px 30px;
+}
+
+.family-card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.family-text-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.family-text-div i {
+  color: red;
+}
+
+.frame img {
+  border: solid 2px;
+  border-bottom-color: rgb(255, 238, 246);
+  border-left-color: #eed;
+  border-right-color: #eed;
+  border-top-color: #ccb;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.frame {
+  background-color: rgb(223, 223, 223);
+  border: solid 5vmin rgb(238, 238, 238);
+  border-bottom-color: rgb(115, 99, 173);
+  border-left-color: rgb(115, 99, 173);
+  border-radius: 2px;
+  border-right-color: rgb(115, 99, 173);
+  border-top-color: rgb(115, 99, 173);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
+    0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 40vh;
+  padding: 4vmin;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.frame:before {
+  border-radius: 2px;
+  bottom: -2vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  content: "";
+  left: -2vmin;
+  position: absolute;
+  right: -2vmin;
+  top: -2vmin;
+}
+.frame:after {
+  border-radius: 2px;
+  bottom: -2.5vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  content: "";
+  left: -2.5vmin;
+  position: absolute;
+  right: -2.5vmin;
+  top: -2.5vmin;
+}
+
+.family-card-text {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+#fun-fact-div {
+  background-color: rgb(255, 187, 132);
+  height: 70vh;
+  width: 100%;
+  position: relative;
+}
+
+.fun-fact-text-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.fun-fact-text-div h1 {
+  margin-top: 30px;
+}
+
+.fun-fact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.fun-fact-card {
+  height: 500px;
+  width: 30%;
+  border: 2px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(191, 245, 194);
+  border-radius: 8px;
+  box-shadow: 0px 25px 30px rgba(0, 0, 0, 0.3);
+}
+
+.fun-card-header {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-fun-card {
+  height: 80%;
+  width: 100%;
+  background-image: url("https://helios-i.mashable.com/imagery/articles/050bXhdmNaL9bDGAINptcrL/hero-image.fill.size_1200x1200.v1617973265.jpg");
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
+}
+
+.second-fun-card {
+  height: 80%;
+  width: 100%;
+  background-image: url("/Images/OU.jpeg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.third-fun-card {
+  height: 80%;
+  width: 100%;
+  background-image: url("/Images/poker.jpeg");
+  background-size: 100% 110%;
+  background-repeat: no-repeat;
+}
+
+.fun-card-description {
+  height: 30%;
+  font-size: 20px;
+  padding: 8px;
+}
+
+#contact-div {
+  background-color: rgb(255, 255, 255);
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#contact-div i {
+  font-size: 280px;
+  cursor: pointer;
+  color: black;
+}
+
+#contact-div i:visited {
+  color: black;
+}
+
+#contact-div i:hover {
+  color: rgb(103, 227, 243);
+  font-size: 290px;
+}
+
+@media (min-width: 1360px) and (max-width: 1700px) {
+  .claremore-text-div {
+    font-size: 19px;
+  }
+
+  .fullstack-text-div {
+    font-size: 19px;
+  }
+
+  .job-text-div {
+    font-size: 19px;
+  }
+
+  .family-card-text {
+    font-size: 20px;
+  }
+
+  .hobby-card-description {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1090px) and (max-width: 1359px) {
+  .claremore-text-div {
+    font-size: 17px;
+  }
+
+  .fullstack-text-div {
+    font-size: 17px;
+  }
+
+  .job-text-div {
+    font-size: 17px;
+  }
+
+  .claremore-div img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .fullstack-div img {
+    height: 250px;
+    width: 200px;
+  }
+
+  .job-div img {
+    height: 250px;
+    width: 300px;
+  }
+
+  .family-card-text {
+    font-size: 17px;
+  }
+
+  .hobby-card-description {
+    font-size: 17px;
+  }
+
+  .fun-card-description {
+    font-size: 16px;
+  }
+
+  .frame img {
+    height: 70%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 570px) and (max-width: 1089px) {
+  body,
+  html {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .intro-div {
+    background-color: rgb(103, 227, 243);
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-text {
+    font-size: 2.5em;
+  }
+
+  #hobby-div {
+    height: 60vh;
+  }
+
+  .hobby-card {
+    height: 80%;
+  }
+
+  .hobby-text-div {
+    font-size: 22px;
+  }
+
+  .hobby-card-description {
+    font-size: 12px;
+    height: 20%;
+  }
+
+  .hobby-card-text {
+    font-size: 15px;
+  }
+
+  #first-card {
+    background-size: 100% 40%;
+  }
+
+  #second-card {
+    background-size: 100% 35%;
+  }
+
+  #third-card {
+    background-size: 100% auto;
+  }
+
+  #education-div {
+    height: 60vh;
+  }
+
+  .education-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60vh;
+  }
+
+  .claremore-div {
+    height: 70%;
+    width: 30%;
+  }
+
+  .claremore-text-div {
+    font-size: 12px;
+    height: 30%;
+    margin: 0;
+  }
+
+  .fullstack-div {
+    height: 70%;
+  }
+
+  .fullstack-text-div {
+    font-size: 12px;
+    margin: 0;
+    height: 30%;
+  }
+
+  .job-text-div {
+    font-size: 12px;
+    margin: 0;
+    height: 30%;
+  }
+
+  .claremore-div img {
+    height: 100px;
+    width: 160px;
+  }
+
+  .fullstack-div img {
+    height: 100px;
+    width: 160px;
+  }
+
+  .job-div {
+    height: 70%;
+  }
+
+  .job-div img {
+    height: 100px;
+    width: 160px;
+  }
+
+  .family-card-text {
+    font-size: 17px;
+  }
+
+  .fun-card-description {
+    font-size: 14px;
+  }
+
+  .fun-card-header {
+    font-size: 11px;
+  }
+
+  .frame img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .frame {
+    height: 25vh;
+    padding: 1vh;
+  }
+
+  #contact-div i {
+    font-size: 210px;
+  }
+
+  #contact-div i:hover {
+    font-size: 220px;
+  }
+}
+
+@media (max-width: 440px) {
+  body,
+  html {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    width: 100px;
+  }
+
+  .sidebar .nav-links li a .link_name {
+    font-size: 12px;
+  }
+
+  .sidebar .nav-links li i {
+    height: 50px;
+    min-width: 38px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .home-section {
+    position: relative;
+    left: 100px;
+    width: calc(100% - 100px);
+    transition: all 0.5s ease;
+  }
+
+  .intro-div {
+    background-color: rgb(103, 227, 243);
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-text {
+    font-size: 1em;
+  }
+
+  #hobby-div {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hobby-images-container {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .hobby-card {
+    height: 800px;
+    width: 90%;
+  }
+
+  .hobby-text-div {
+    font-size: 11px;
+  }
+
+  .hobby-card-description {
+    font-size: 11px;
+    height: 20%;
+  }
+
+  .hobby-card-text {
+    font-size: 11px;
+  }
+
+  #first-card {
+    background-size: 100% 45%;
+    transform: perspective(0px) rotateY(0deg);
+  }
+
+  #second-card {
+    background-size: 80% 55%;
+  }
+
+  #third-card {
+    background-size: 100% 60%;
+    transform: perspective(0px) rotateY(0deg);
+  }
+
+  #education-div {
+    height: 135vh;
+  }
+
+  .education-text-div {
+    font-size: 16px;
+  }
+
+  .education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .claremore-div {
+    height: 30%;
+    width: 100%;
+  }
+
+  .claremore-text-div {
+    font-size: 12px;
+    height: 30%;
+    margin: 30px 0 0 0;
+  }
+
+  .fullstack-div {
+    height: 30%;
+    width: 100%;
+  }
+
+  .fullstack-text-div {
+    font-size: 12px;
+    margin: 70px 0 0 0;
+    height: 30%;
+  }
+
+  .job-text-div {
+    font-size: 12px;
+    margin: 0;
+    height: 30%;
+  }
+
+  .claremore-div img {
+    height: 100px;
+    width: 160px;
+  }
+
+  .fullstack-div img {
+    height: 140px;
+    width: 160px;
+  }
+
+  .job-div {
+    height: 30%;
+    width: 100%;
+  }
+
+  .job-div img {
+    height: 100px;
+    width: 160px;
+  }
+
+  .fun-card-description {
+    font-size: 14px;
+  }
+
+  .fun-card-header {
+    font-size: 11px;
+  }
+
+  #family-div {
+    background-color: rgb(255, 255, 255);
+    height: 215vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .family-card-text {
+    font-size: 17px;
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .family-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    margin: 10px 30px 0px 30px;
+  }
+
+  .family-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .family-text-div {
+    font-size: 12px;
+  }
+
+  .frame img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .frame {
+    height: 25vh;
+    padding: 1vh;
+  }
+
+  #fun-fact-div {
+    background-color: rgb(255, 187, 132);
+    height: fit-content;
+    width: 100%;
+    position: relative;
+  }
+
+  .fun-fact-text-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .fun-fact-text-div h1 {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  .fun-fact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+  }
+
+  .fun-fact-card {
+    height: 500px;
+    width: 90%;
+    border: 2px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(191, 245, 194);
+    border-radius: 8px;
+    box-shadow: 0px 25px 30px rgba(0, 0, 0, 0.3);
+    margin: 30px 0 30px 0;
+  }
+
+  .fun-card-header {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #contact-div i {
+    font-size: 210px;
+  }
+
+  #contact-div i:hover {
+    font-size: 220px;
+  }
+
+  #contact-div {
+    background-color: rgb(255, 255, 255);
+    height: 85vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
